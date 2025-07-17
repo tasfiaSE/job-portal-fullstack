@@ -1,1 +1,88 @@
-# TEst
+# 📘 MERN Stack Job Portal
+
+A modern full‑stack web application for managing jobs and applications, built with the MERN stack. It features secure authentication, automated newsletters, and efficient state management.
+
+---
+
+## 🚀 Table of Contents
+- [Tech Stack](#tech-stack)  
+- [📦 Features](#features)  
+- [📁 Project Setup](#project-setup)  
+- [🛠️ Architecture & File Structure](#architecture--file-structure)  
+- [🧪 Testing](#testing)  
+- [🛡️ Security Best Practices](#security-best-practices)  
+- [✅ Deployment](#deployment)  
+
+---
+
+## Tech Stack
+
+- **Frontend**: React.js, Redux, Redux Toolkit, React Router  
+- **Backend**: Node.js, Express.js  
+- **Database**: MongoDB (Mongoose ORM)  
+- **Background Jobs**: Node Cron  
+- **Email**: Nodemailer (or external service, e.g. SendGrid)  
+- **Auth**: JWT, bcrypt  
+- **Env Management**: dotenv  
+
+---
+
+## 📦 Features
+
+1. **User Authentication & Profiles**  
+   - Sign up, login, logout  
+   - Email verification (optional)  
+   - JWT‑based auth with access & refresh tokens  
+   - Secure password hashing via bcrypt  
+   - Profile management (view/update user data)  
+
+2. **Jobs & Applications CRUD**  
+   - Admin or Employer can post, edit, delete jobs  
+   - Users can browse jobs, apply via forms  
+   - Application status workflow (e.g. applied, reviewed, accepted, rejected)  
+
+3. **Automated Newsletters**  
+   - Daily/weekly summary of new job postings  
+   - Node Cron schedules jobs  
+   - Nodemailer sends transactional emails  
+
+4. **State Management (Redux Toolkit)**  
+   - Slice-based architecture  
+   - Async thunks for API calls  
+   - React‑Redux hooks  
+
+5. **Best Practices**  
+   - Linting with ESLint + Prettier  
+   - Environment variable management  
+   - Input validation & error handling  
+   - Secure sensitive routes & sanitization  
+   - Separation of concerns (services/controllers/routes)  
+
+---
+
+## 📁 Project Setup
+
+### Prerequisites
+
+- Node.js ≥ 16.x  
+- npm or yarn  
+- MongoDB instance (local or Atlas)  
+- `.env` file (see below)  
+
+### Environment Variables
+
+Create `.env` in both `/client` and `/server` with:
+
+```dotenv
+# server/.env
+PORT=4000
+MONGO_URI=<your_mongo_connection_string>
+JWT_SECRET=<your_jwt_secret>
+EMAIL_HOST=smtp.example.com
+EMAIL_PORT=587
+EMAIL_USER=you@example.com
+EMAIL_PASS=supersecret
+CRON_SCHEDULE="0 8 * * *"   # everyday at 8 AM
+
+# client/.env
+REACT_APP_API_URL=http://localhost:5000/api
